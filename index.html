@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunnii Candy - ร้านขนมและของขวัญสุดน่ารัก</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=Mali:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #FFD1DC;
+            --dark-pink: #FF9AA2;
+            --soft-cream: #FFF5F5;
+            --text-color: #5D4E4E;
+            --white: #ffffff;
+            --shadow: 0 8px 20px rgba(255, 154, 162, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--soft-cream);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, .logo {
+            font-family: 'Mali', cursive;
+            color: var(--dark-pink);
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            background-color: var(--primary-pink);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 60px 25px;
+            text-align: center;
+            background: linear-gradient(180deg, #fff 0%, var(--soft-cream) 100%);
+            border-radius: 0 0 50px 50px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .btn-main {
+            background-color: var(--dark-pink);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-main:hover {
+            transform: translateY(-3px);
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 5px;
+            background: var(--primary-pink);
+            margin: 10px auto;
+            border-radius: 10px;
+        }
+
+        /* --- Product Grid --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.03);
+        }
+
+        .product-img-placeholder {
+            width: 100%;
+            height: 180px;
+            background-color: var(--soft-cream);
+            border-radius: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .product-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: var(--dark-pink);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* --- Reviews --- */
+        .reviews-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.6);
+            border: 2px dashed var(--primary-pink);
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .review-user {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+            color: var(--dark-pink);
+        }
+
+        /* --- Contact/Footer --- */
+        .contact-section {
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        .btn-line {
+            background-color: #06C755;
+            color: white;
+            padding: 15px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(6, 199, 85, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive Desktop */
+        @media (min-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .reviews-container {
+                flex-direction: row;
+            }
+            .review-card { flex: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon"></div>
+            <span class="logo-text">Bunnii Candy</span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>เติมความหวานให้วันของคุณ ✨</h1>
+            <p>รวมขนมโฮมเมดพาสเทลและของขวัญน่ารักๆ ส่งตรงถึงหน้าบ้านคุณ</p>
+            <a href="#shop" class="btn-main">เลือกซื้อเลย</a>
+        </section>
+
+        <!-- Product Section -->
+        <section id="shop">
+            <h2 class="section-title">สินค้าแนะนำ</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img-placeholder">🧁</div>
+                    <h3>พาสเทลคัพเค้ก</h3>
+                    <p>เนื้อนุ่มละมุน หวานน้อย</p>
+                    <p class="price">฿59.-</p>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img-placeholder">🌸</div>
+                    <h3>คุ้กกี้ดอกไม้</h3>
+                    <p>หอมกลิ่นวานิลลาแท้จากธรรมชาติ</p>
+                    <p class="price">฿89.-</p>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img-placeholder">🎀</div>
+                    <h3>เซ็ตของขวัญสุ่ม่</h3>
+                    <p>ลุ้นรับของพรีเมียมในกล่องชมพู</p>
+                    <p class="price">฿159.-</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Review Section -->
+        <section>
+            <h2 class="section-title">รีวิวจากลูกค้า</h2>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <span class="review-user">@Ploy_Sweet</span>
+                    <p>"แพ็คเกจน่ารักมากค่ะ ขนมก็อร่อย ไม่หวานเกินไป สั่งซ้ำแน่นอน!"</p>
+                </div>
+                <div class="review-card">
+                    <span class="review-user">@Mochi_Kun</span>
+                    <p>"ส่งไวมากครับ สั่งไปให้แฟน แฟนประทับใจสุดๆ โทนสีร้านน่ารักมาก"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2 class="section-title">สอบถามเพิ่มเติม</h2>
+            <p style="margin-bottom: 25px;">สั่งซื้อสินค้าหรือสอบถามแอดมินได้ทาง Line เลยค่ะ</p>
+            <a href="#" class="btn-line">
+                <span>LINE ID: @bunniicandy</span>
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Bunnii Candy Official. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
